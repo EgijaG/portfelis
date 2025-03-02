@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 226 40% 92%;
+        --foreground: 196 93% 12%;
+
+        --card: 226 40% 92%;
+        --card-foreground: 196 93% 12%;
+
+        --popover: 226 40% 92%;
+        --popover-foreground: 196 93% 12%;
+
+        --primary: 196 93% 12%;
+        --primary-foreground: 226 40% 92%;
+
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 196 93% 12%;
+
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 220 10% 46.1%;
+
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 196 93% 12%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 226 40% 92%;
+
+        --border: 240 5.9% 80%;
+        --input: 240 5.9% 90%;
+        --ring: 196 93% 40%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 196 93% 12%;
+        --foreground: 226 40% 92%;
+
+        --card: 196 93% 12%;
+        --card-foreground: 226 40% 92%;
+
+        --popover: 196 93% 12%;
+        --popover-foreground: 226 40% 92%;
+
+        --primary: 226 40% 92%;
+        --primary-foreground: 196 93% 12%;
+
+        --secondary: 196 93% 20%;
+        --secondary-foreground: 226 40% 92%;
+
+        --muted: 196 93% 20%;
+        --muted-foreground: 210 15% 65%;
+
+        --accent: 196 93% 20%;
+        --accent-foreground: 226 40% 92%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 226 40% 92%;
+
+        --border: 196 93% 20%;
+        --input: 196 93% 20%;
+        --ring: 196 93% 75%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        @apply bg-background text-foreground transition-colors duration-300;
+    }
+}
+
+@layer components {
+    .glass {
+        @apply bg-background/50 backdrop-blur-lg border border-border/50 shadow-sm;
+    }
+
+    .hover-card {
+        @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-md;
+    }
+
+    .section-container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+    }
+
+    .animated-underline {
+        @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+    }
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: local('SF Pro Display');
+}
