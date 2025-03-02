@@ -1,28 +1,41 @@
 name: Deploy React to GitHub Pages
-
 on:
   push:
     branches:
       - main 
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      
       - name: Install Dependencies
         run: npm ci
+      
       - name: Build
         run: npm run build
+      
+      - name: List build directory content
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Listing directory content:"
+          ls -la
+          echo "Listing potential build directories:"
+          ls -la build 2>/dev/null || echo "build/ not found"
+          ls -la dist 2>/dev/null || echo "dist/ not found"
+          ls -la out 2>/dev/null || echo "out/ not found"
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build/.'
+          path: './build'  # Changed from 'build/.' to './build'
+  
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -35,5 +48,6 @@ jobs:
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      
       - name: Deploy
         uses: actions/deploy-pages@v4
