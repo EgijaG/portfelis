@@ -1,7 +1,8 @@
 {
   "name": "vite_react_shadcn_ts",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "homepage": "https://egijag.github.io/portfelis/",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
