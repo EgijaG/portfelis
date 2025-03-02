@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { cn } from "@/lib/utils";
 import { projects } from "@/data/projects";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "../contexts/LanguageContext";
 
 
 // Categories for filtering with translation keys
